@@ -39,7 +39,8 @@ Preliminaries
   Maximum completion time: Cmax (makespan이라고도 한다.) 모든 작업이 마쳐지기까지의 시간
   
   
-3. 스케줄링
+3장
+
   Single Machine Sequencing
   
   Single Machine problem의 조건
@@ -58,4 +59,29 @@ Preliminaries
    Dispatching Rules
     MST - Minimum slack time    Slack time (dj - t -pj)낮은 순으로  dj - t 하면 현재 남은 기간 여기서 작업하는데 걸리는 시간을 빼주면 여유시간
     여유시간이 가장 낮은 것부터 처리하는 Rule
+    
+ 4장
+    CR  Critical ratio -> (dj - t) / pj 낮은 순으로 할당   CR = Time remaining / Work remaining
+                                                             = (due date - current time) / remaining processing time
+    if CR > 1 여유가 있다
+    if CR < 1 이미 늦은 상태 (바로 할당을 해도 납기에 못맞춘다.)
+    if CR = 0 job on schedule
+    if CR < 0 이미 납기일이 지난 상태
+    
+    Dispatching Rules
+    제한적으로 사용이 가능하며, 특정 경우에는 매우 안 좋은 품질의 solution을 산출한다.
+    
   
+    Problems Without Due Dates
+    Flowtime 비용1: 제품이 고객에게 도달하기까지의 시간
+    Flowtime을 최소화하면 비용을 최소화 할 수 있음
+    
+    Inventory 비용2: Shop에 물리적으로 투자된 비용 (저장공간의 확보)
+    System에 존재하는 평균 job의 수를 최소화하면 inventory level을 낮게 유지할 수 있음
+
+    Relation between two objectives
+    
+    J(t): t시점에 시스템안에 존재하는 job의 개수
+    J: J(t) function의 평균
+    Fmax 값은 마지막으로 수행되는 job의 flowtime과 동일함
+    

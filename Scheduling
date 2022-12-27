@@ -1,0 +1,61 @@
+Schedule은 어떤 것이 언제 일어나기로 되어 있는지 알려준다.
+
+Scheduling -> Schedule을 생성하는 프로세스
+
+제조업에서의 Task -> Jobs 여러개의 단위의 작업 operations
+
+Scheduling
+  생산전 마지막 스텝
+  시간의 흐름에 따라 여러 개의 기계에 할당 등을 한다.
+ 
+ Sequencing
+  순서만 정한다.
+ 
+   Single machine sequencing에서는 setup time이 없다.
+ 
+Preliminaries
+  
+   (input)
+  Scheduling 전 알고 있는 정보이며 소문자로 표현됨
+  
+  -Processing time (pj) -> job j를 하는데 요구되는 시간
+  -Release date (rj) -> job j가  설비가 j번째 작업을 시작할 수 있게되는 시간
+  -Due date (dj) -> 납기일
+  
+   (output)
+  Scheduling 의사결정의 결과로 생성되는 정보이며, 대문자로 표현됨
+  
+  -Completion time (Cj)
+  -Flowtime (Fj) -> Fj = Cj-Fj   single machine에서는 Fj가 0이다.
+  The time job j spends in the system
+  요구를 처리하기 위한 시스템의 요구시간 (turnaroundtime, tat라고도 한다.)
+  -Lateness (Lj) -> Lj = Cj - dj
+  The amount of time by which the completion time of job j exceeds ots due date
+  Negative value는 요구보다 작업을 빨리 끝낸 것, positive value는 요구보다 작업을 늦게 끝낸 것
+  Tardiness (Tj) -> Tj = max{0,Lj}
+  Positive lateness에 대한 penalty만을 측정하기 위해 고안된 지표
+  
+  
+  Maximum completion time: Cmax (makespan이라고도 한다.) 모든 작업이 마쳐지기까지의 시간
+  
+  
+3. 스케줄링
+  Single Machine Sequencing
+  
+  Single Machine problem의 조건
+  Release time이 0이다, 한번에 하나의 작업만 가능하다, setup time은 processing times에 포함되어있다. 
+  job에 대해서 결정되어있고 설명을 미리알고있다. 기계는 항상 사용가능하다(가정). 앞에 job이 대기하고있다면 기계에는 idle이 없다.
+  Operation이 한번 시작되면 방해받을 수 없다.
+  
+  Permutation schedule 순열 스케쥴, 순열로 표현할수 있기때문
+  
+  Single Machine Problem의 의의
+  single machine problem의 분석 결과는 복잡한 shop의 문제에 적용될 heuristic의 기초가 될 수 있음
+  Heuristic이란
+    optimal을 보장하지 않는다. 충분히 괜찮은해, 빠르게 만족할만한 solution을 구하기 위한 방법
+    Scheduling에서 dispatching rule도 heuristic의 일종이라고 볼 수 있음
+    
+   Dispatching Rules
+    MST - Minimum slack time    Slack time (dj - t -pj)낮은 순으로  dj - t 하면 현재 남은 기간 여기서 작업하는데 걸리는 시간을 빼주면 여유시간
+    여유시간이 가장 낮은 것부터 처리하는 Rule
+  
